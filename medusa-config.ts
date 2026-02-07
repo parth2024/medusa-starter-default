@@ -12,5 +12,13 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  }
+  },
+  admin: {
+    vite: {
+      server: {
+        // Allow *.kuberns.site when accessed via reverse proxy (e.g. medusa-fork-master-*.kuberns.site)
+        allowedHosts: [".kuberns.site", "localhost", "127.0.0.1"],
+      },
+    },
+  },
 })
